@@ -1,0 +1,210 @@
+[
+  {
+    "text": "cześć",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9844990372657776
+    }
+  },
+  {
+    "text": "witam",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9342718124389648
+    }
+  },
+  {
+    "text": "dzień dobry",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9170824289321899
+    }
+  },
+  {
+    "text": "do widzenia",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.42907291650772095
+    }
+  },
+  {
+    "text": "pa",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.5595487356185913
+    }
+  },
+  {
+    "text": "na razie",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5641257762908936
+    }
+  },
+  {
+    "text": "trzymaj się",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.5539073944091797
+    }
+  },
+  {
+    "text": "jakie są dostępne turnieje?",
+    "intent": "list_tournaments",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5084569454193115
+    }
+  },
+  {
+    "text": "jakie rozgrywki macie teraz?",
+    "intent": "list_tournaments",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9894574284553528
+    }
+  },
+  {
+    "text": "wyświetl listę dostępnych rozgrywek",
+    "intent": "list_tournaments",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.979526698589325
+    }
+  },
+  {
+    "text": "lista dostępnych turniejów",
+    "intent": "list_tournaments",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5211402773857117
+    }
+  },
+  {
+    "text": "w co mogę teraz zagrać?",
+    "intent": "list_tournaments",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.975208044052124
+    }
+  },
+  {
+    "text": "chcę się zapisać do turnieju",
+    "intent": "add_player",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.8118436336517334
+    }
+  },
+  {
+    "text": "zapisz mnie do turnieju",
+    "intent": "add_player",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.47844675183296204
+    }
+  },
+  {
+    "text": "dodaj zawodnika do rozgrywki",
+    "intent": "add_player",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.779362142086029
+    }
+  },
+  {
+    "text": "dołącz do turnieju",
+    "intent": "add_player",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5327414274215698
+    }
+  },
+  {
+    "text": "dołącz do rozgrywki",
+    "intent": "add_player",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.560576856136322
+    }
+  },
+  {
+    "text": "potwierdź",
+    "intent": "confirm_details",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.6297041773796082
+    }
+  },
+  {
+    "text": "tak, zgadza się",
+    "intent": "confirm_details",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6237730979919434
+    }
+  },
+  {
+    "text": "zatwierdź",
+    "intent": "confirm_details",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9475141167640686
+    }
+  },
+  {
+    "text": "okej, potwierdzam",
+    "intent": "confirm_details",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9999477863311768
+    }
+  },
+  {
+    "text": "pokaż wszystkie drużyny i zawodników",
+    "intent": "show_full_info",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9706494808197021
+    }
+  },
+  {
+    "text": "wyświetl pełne info o turnieju",
+    "intent": "show_full_info",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8455377817153931
+    }
+  },
+  {
+    "text": "chcę zobaczyć stan rozgrywki",
+    "intent": "show_full_info",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9076123237609863
+    }
+  },
+  {
+    "text": "jakie drużyny biorą udział?",
+    "intent": "show_full_info",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.5123139023780823
+    }
+  },
+  {
+    "text": "lista zawodników i drużyn",
+    "intent": "show_full_info",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.7413015961647034
+    }
+  }
+]
