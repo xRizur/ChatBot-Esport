@@ -1,23 +1,20 @@
 version: "3.1"
 
-actions:
- - utter_greet
- - utter_suggest_cuisine
- - utter_search_restaurants
-
 intents:
- - greet
- - affirm
- - deny
- - search_restaurant
+  - greet
+  - goodbye
+  - list_competitions
+
+actions:
+  - action_list_competitions
 
 responses:
   utter_greet:
-  - text: "hi!"
-  utter_suggest_cuisine:
-  - text: "how about greek food?"
-  - text: "how about chinese food?"
-  - text: "how about italian food?"
-  - text: "how about sushi?"
-  utter_search_restaurants:
-  - text: "great! here's what I found ..."
+    - text: "Hello! I'm the eSport Bot. How can I assist you?"
+  utter_goodbye:
+    - text: "Goodbye!"
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

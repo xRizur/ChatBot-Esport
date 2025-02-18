@@ -11,8 +11,8 @@ services:
     command:
       - "-c"
       - >-
-        rasa train &&
-        rasa run --connector botframework --credentials credentials.yml --port 5005 --enable-api --cors '*' --debug
+         rasa train &&
+         rasa run --credentials credentials.yml --port 5005 --enable-api --debug
 
     volumes:
       - ./:/app

@@ -1,71 +1,33 @@
-# # actions.py
-# from typing import Any, Text, Dict, List
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-# from rasa_sdk.events import SlotSet
+import json
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
 
-# class ActionAddPlayer(Action):
-#     def name(self) -> Text:
-#         return "action_add_player"
+class ActionListCompetitions(Action):
+    def name(self) -> Text:
+        return "action_list_competitions"
 
-#     def run(self,
-#             dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-#         # Pobranie slotów
-#         player_name = tracker.get_slot("player_name")
-#         tournament_name = tracker.get_slot("tournament_name")
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-#         # Tu można dodać logikę zapisu do bazy danych.
-#         # Na przykład: Database.add_player(tournament_name, player_name)
+        try:
+            with open("competitions.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+                competitions = data.get("competitions", [])
+        except Exception as e:
+            dispatcher.utter_message(text="Sorry, an error occurred while reading the competitions data.")
+            return []
 
-#         # Zwrot slotów, aby przechowywać dane w sesji.
-#         return [SlotSet("player_name", player_name),
-#                 SlotSet("tournament_name", tournament_name)]
+        if competitions:
+            message_lines = ["Here are the available competitions:"]
+            for comp in competitions:
+                name = comp.get("name", "Unknown")
+                details = comp.get("details", "No details available")
+                message_lines.append(f"- {name}: {details}")
+            message = "\n".join(message_lines)
+            dispatcher.utter_message(text=message)
+        else:
+            dispatcher.utter_message(text="No competitions found.")
 
-# class ActionShowFullInfo(Action):
-#     def name(self) -> Text:
-#         return "action_show_full_info"
-
-#     def run(self,
-#             dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-#         tournament_name = tracker.get_slot("tournament_name")
-#         if not tournament_name:
-#             # fallback - jeśli nie wiadomo, o który turniej chodzi
-#             tournament_name = "Super Cup 2024"  # default/placeholder
-
-#         # Możesz tu pobrać z DB szczegółowe info o turnieju
-#         # info = Database.get_full_info(tournament_name)
-
-#         # dispatcher.utter_message(text="Oto szczegóły: ...")
-
-#         return []
-
-
-# from typing import Any, Text, Dict, List
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-
-# class ActionAddPlayer(Action):
-#     def name(self) -> Text:
-#         return "action_add_player"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         # Przykład: nic nie robi, tylko zwraca
-#         return []
-
-# class ActionShowFullInfo(Action):
-#     def name(self) -> Text:
-#         return "action_show_full_info"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         return []
-
+        return []
