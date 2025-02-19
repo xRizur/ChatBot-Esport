@@ -2,17 +2,14 @@ version: '3.9'
 
 services:
   rasa:
-    image: rasa/rasa:main-full
+    image: rasa/rasa:3.6.2-full
     user: root
-    # Ustawiamy jako entrypoint zwykły /bin/bash
     entrypoint: /bin/bash
-    # 'command' definiujemy w formie listy, gdzie pierwszym elementem jest '-c',
-    # a drugim jest nasz ciąg poleceń w Bashu.
     command:
       - "-c"
       - >-
-         rasa train &&
-         rasa run --credentials credentials.yml --port 5005 --enable-api --debug
+        rasa run --enable-api --cors "*" --debug
+
 
     volumes:
       - ./:/app
